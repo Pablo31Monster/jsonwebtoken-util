@@ -1,5 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
-import { validateToken, checkHeader } from '../util';
+import { generateVerify } from './generate-verify';
 import { config } from '../config';
 
 /**
@@ -8,16 +7,5 @@ import { config } from '../config';
  * @param res - The response object
  * @param next - The next function
  */
-export function verifyRefreshToken(req: Request, res: Response, next: NextFunction) {
-    try {
-        const token = checkHeader(req);
-        res.locals['token_data'] = validateToken({
-            token,
-            secret: config.refreshSecret
-        });
-        next();
-    } catch (error: unknown) {
-        if (error instanceof Error) res.status(401).json({ auth: false, message: error.message });
-        else res.status(401).json({ auth: false, message: 'Token invalid' });
-    }
-}
+export const verifyRefreshToken = generateVerify({ secret: config.refreshSecret });
+
