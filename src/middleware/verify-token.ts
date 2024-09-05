@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express";
-import { validateToken, checkHeader } from "../util";
-import { config } from "../config";
+import { NextFunction, Request, Response } from 'express';
+import { validateToken, checkHeader } from '../util';
+import { config } from '../config';
 
 /**
  * Middleware that verifies a token and stores the token data in res.locals['token_data']
@@ -11,12 +11,13 @@ import { config } from "../config";
 export function verifyToken(req: Request, res: Response, next: NextFunction) {
     try {
         const token = checkHeader(req);
-        res.locals['token_data']  = validateToken({ token, secret: config.secret });
+        res.locals['token_data'] = validateToken({
+            token,
+            secret: config.secret
+        });
         next();
     } catch (error: unknown) {
-        if (error instanceof Error)
-            res.status(401).json({ auth: false, message: error.message });
-        else
-            res.status(401).json({ auth: false, message: 'Token invalid' });
+        if (error instanceof Error) res.status(401).json({ auth: false, message: error.message });
+        else res.status(401).json({ auth: false, message: 'Token invalid' });
     }
-};
+}

@@ -13,8 +13,8 @@ export let config = {
     expiresIn: process.env['JWT_EXPIRES_IN'] || '1h',
     /** expressed in seconds or a string describing a time span [zeit/ms](https://github.com/zeit/ms.js).  Eg: 60, "2 days", "10h", "7d" */
     refreshExpiresIn: process.env['JWT_REFRESH_EXPIRES_IN'] || '6h',
-    signOptions: {} as Omit<SignOptions, "expiresIn">,
-    verifyOptions: {} as Omit<VerifyOptions, "complete">
+    signOptions: {} as Omit<SignOptions, 'expiresIn'>,
+    verifyOptions: {} as Omit<VerifyOptions, 'complete'>
 };
 
 /**
@@ -27,25 +27,14 @@ export let config = {
  * @param verifyOptions - The verify options
  * @returns The configuration
  */
-export function setConfig
-(
-    {
-        secret,
-        refreshSecret,
-        expiresIn,
-        refreshExpiresIn,
-        signOptions,
-        verifyOptions,
-    } : Partial<typeof config> 
-) : typeof config
-{
-    config = { 
-        secret: secret || config.secret, 
-        refreshSecret: refreshSecret || config.refreshSecret, 
-        expiresIn: expiresIn || config.expiresIn, 
+export function setConfig({ secret, refreshSecret, expiresIn, refreshExpiresIn, signOptions, verifyOptions }: Partial<typeof config>): typeof config {
+    config = {
+        secret: secret || config.secret,
+        refreshSecret: refreshSecret || config.refreshSecret,
+        expiresIn: expiresIn || config.expiresIn,
         refreshExpiresIn: refreshExpiresIn || config.refreshExpiresIn,
         signOptions: signOptions || config.signOptions,
         verifyOptions: verifyOptions || config.verifyOptions
     };
     return config;
-};
+}

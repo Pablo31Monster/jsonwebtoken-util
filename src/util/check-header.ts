@@ -1,4 +1,4 @@
-import { Request } from "express";
+import { Request } from 'express';
 
 /**
  * Check if the header is valid ( 'Authorization: Bearer token' )
@@ -6,15 +6,11 @@ import { Request } from "express";
  * @returns The token from the header
  */
 export function checkHeader(req: Request): string {
-    if (!req.headers)
-        throw new Error('No header provided');
+    if (!req.headers) throw new Error('No header provided');
     const header = req.headers['authorization'];
-    if (!header)
-        throw new Error('No header provided');
+    if (!header) throw new Error('No header provided');
     const [bearer, token] = header.split(' ');
-    if (bearer !== 'Bearer')
-        throw new Error('Invalid header');
-    if (!token)
-        throw new Error('No token provided');
+    if (bearer !== 'Bearer') throw new Error('Invalid header');
+    if (!token) throw new Error('No token provided');
     return token;
-};
+}

@@ -8,13 +8,7 @@ import { config } from '../config';
  * @param refreshSecret - The refresh secret to use
  * @returns The token and refresh token
  */
-export function generateTokens
-(
-    { data, secret, refreshSecret }: 
-    { data: JwtPayload | string, secret: string, refreshSecret: string }
-):
-    { token: string, refreshToken: string } 
-{
+export function generateTokens({ data, secret, refreshSecret }: { data: JwtPayload | string; secret: string; refreshSecret: string }): { token: string; refreshToken: string } {
     if (!data) throw new Error('Data is required');
     if (!secret) throw new Error('Secret is required');
     if (!refreshSecret) throw new Error('Refresh secret is required');
@@ -27,7 +21,13 @@ export function generateTokens
         delete data['iat'];
         delete data['jti'];
     }
-    const token = sign(data, secret, { ...config.signOptions, expiresIn: config.expiresIn });
-    const refreshToken = sign(data, refreshSecret, { ...config.signOptions, expiresIn: config.refreshExpiresIn });
-    return { token, refreshToken }
-};
+    const token = sign(data, secret, {
+        ...config.signOptions,
+        expiresIn: config.expiresIn
+    });
+    const refreshToken = sign(data, refreshSecret, {
+        ...config.signOptions,
+        expiresIn: config.refreshExpiresIn
+    });
+    return { token, refreshToken };
+}

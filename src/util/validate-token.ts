@@ -7,17 +7,14 @@ import { config } from '../config';
  * @param secret - The secret to use
  * @returns The decoded token
  */
-export function validateToken
-(
-    { token, secret }: 
-    { token: string, secret: string }
-):
-    JwtPayload | string 
-{
+export function validateToken({ token, secret }: { token: string; secret: string }): JwtPayload | string {
     try {
-        const decoded = verify(token, secret, { ...config.verifyOptions, complete: false });
+        const decoded = verify(token, secret, {
+            ...config.verifyOptions,
+            complete: false
+        });
         return decoded;
     } catch {
         throw new Error('Invalid token or secret');
     }
-};
+}
