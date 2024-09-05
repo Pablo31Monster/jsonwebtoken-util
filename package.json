@@ -1,16 +1,31 @@
 {
     "name": "jsonwebtoken-util",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Utils for jsonwebtoken package",
+    "author": "Pablo Gálvez Ortuño <pablogalvez31@gmail.com> (https://github.com/Pablo31Monster)",
+    "license": "ISC",
     "main": "index.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Pablo31Monster/jsonwebtoken-util"
+    },
+    "bugs": {
+        "url": "https://github.com/Pablo31Monster/jsonwebtoken-util/issues"
+    },
     "scripts": {
         "build": "tsc",
         "lint": "eslint --fix src",
         "prettier": "prettier --config .prettierrc.json 'src/**/*.ts' --write",
         "test": "jest"
     },
-    "author": "Pablo Gálvez Ortuño",
-    "license": "ISC",
+    "keywords": [
+        "jsonwebtoken-utils",
+        "jsonwebtoken-util",
+        "jsonwebtoken",
+        "utils",
+        "util",
+        "jwt"
+    ],
     "dependencies": {
         "jsonwebtoken": "^9.0.2"
     },
@@ -39,6 +54,10 @@
         "jsonwebtoken": {
             "optional": false
         }
+    },
+    "engines": {
+        "node": ">=12",
+        "npm": ">=6"
     },
     "files": [
         "dist",
