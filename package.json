@@ -1,6 +1,6 @@
 {
     "name": "jsonwebtoken-util",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Utils for jsonwebtoken package",
     "author": "Pablo Gálvez Ortuño <pablogalvez31@gmail.com> (https://github.com/Pablo31Monster)",
     "license": "ISC",
@@ -15,7 +15,7 @@
     "scripts": {
         "build": "tsc",
         "lint": "eslint --fix src",
-        "prettier": "prettier --config .prettierrc.json 'src/**/*.ts' --write",
+        "prettier": "prettier --config .prettierrc.json '**/*.ts' --write",
         "test": "jest"
     },
     "keywords": [
@@ -44,6 +44,7 @@
         "prettier": "^3.3.3",
         "supertest": "^7.0.0",
         "ts-jest": "^29.2.5",
+        "ts-node": "^10.9.2",
         "typescript": "^5.5.4",
         "typescript-eslint": "^8.4.0"
     },

@@ -27,7 +27,9 @@ describe('verifyToken tests', () => {
     test('verifyToken should throw an error if something goes wrong', () => {
         const req = mockRequest({ headers: { authorization: `Bearer ${token}` } });
         const res = mockResponse();
-        const next = jest.fn().mockImplementation(() => { throw 'Error' });
+        const next = jest.fn().mockImplementation(() => {
+            throw 'Error';
+        });
         verifyToken(req, res, next);
         expect(res.status).toHaveBeenCalledWith(401);
         expect(res.json).toHaveBeenCalledWith({ auth: false, message: 'Token invalid' });

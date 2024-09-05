@@ -2,10 +2,8 @@ import { sign } from 'jsonwebtoken';
 import { validateToken } from '../../src';
 
 describe('validateToken tests', () => {
-    const secret: string = 'secret';
+    const secret = 'secret';
     const token: string = sign({ data: 'value' }, secret, { expiresIn: '1h' });
-    beforeEach(() => {
-    });
 
     test('validateToken should return the tokens created', () => {
         const decoded = validateToken({ token, secret });

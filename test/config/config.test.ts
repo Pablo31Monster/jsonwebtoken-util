@@ -1,10 +1,6 @@
 import { config, setConfig } from '../../src';
 
 describe('config tests', () => {
-    beforeEach(() => {
-        
-    });
-
     test('config should return the default values', () => {
         const configuration = config;
         expect(configuration).toHaveProperty('secret');

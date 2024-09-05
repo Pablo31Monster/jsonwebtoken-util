@@ -7,15 +7,12 @@ describe('e2e tests', () => {
     const token: string = sign({ data: 'value' }, config.secret, { expiresIn: '1h' });
     const refreshToken: string = sign({ data: 'value' }, config.refreshSecret, { expiresIn: '1h' });
 
-    beforeEach(() => {
-    });
-
     test('e2e GET /protected test', () => {
         supertest(app)
             .get('/protected')
             .set('Authorization', `Bearer ${token}`)
             .expect(200)
-            .end(function(err) {
+            .end(function (err) {
                 if (err) throw err;
             });
     });
@@ -25,7 +22,7 @@ describe('e2e tests', () => {
             .get('/refresh')
             .set('Authorization', `Bearer ${refreshToken}`)
             .expect(200)
-            .end(function(err) {
+            .end(function (err) {
                 if (err) throw err;
             });
     });
