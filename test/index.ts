@@ -11,4 +11,4 @@ app.get('/refresh', verifyRefreshToken, (_, res) => {
     res.status(200).json({ message: 'Refresh route' });
 });
 
-export const server = app.listen(3000, () => {});
+export const server = app.listen(3000);

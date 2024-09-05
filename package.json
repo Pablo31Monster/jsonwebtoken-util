@@ -1,6 +1,6 @@
 {
     "name": "jsonwebtoken-util",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Utils for jsonwebtoken package",
     "author": "Pablo Gálvez Ortuño <pablogalvez31@gmail.com> (https://github.com/Pablo31Monster)",
     "license": "ISC",
