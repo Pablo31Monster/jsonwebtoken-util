@@ -1,6 +1,6 @@
 # jsonwebtoken-util
 
-Library of functions and middlewares to work with [jsonwebtoken package](https://www.npmjs.com/package/jsonwebtoken) 
+Library of functions and middlewares to work with [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) package
 
 ## Installation
 

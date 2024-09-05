@@ -4,7 +4,7 @@
     "description": "Utils for jsonwebtoken package",
     "main": "index.ts",
     "scripts": {
-        "tsc": "tsc",
+        "build": "tsc",
         "lint": "eslint --fix src",
         "test": "jest"
     },
